@@ -3,8 +3,8 @@
 
 tag_void=("area" "base" "br" "col" "embed" "hr" "img" "input" "link" "meta" "param" "source" "track" "wbr" "!DOCTYPE html")
 
-prima=$(sed -e "s/>/>\n/g; s/</\n</g" "$1" )
-prima_formatare=$(echo "$prima" | sed '/^$/d')
+prima=$(sed -e "s/>/>\n/g; s/</\n</g" "$1" | sed 's/^[[:blank:]]*//' )
+# prima_formatare=$(echo "$prima" | sed '/^$/d')
 
 
 mapfile -t fisier < <(echo "$prima" | sed '/^$/d')
